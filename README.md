@@ -35,7 +35,8 @@ npm install --global gulp-cli
 Run
 ```
 npm install
-gulp
+bower install
+gulp serve
 ```
 
 ##Tech stack and familarity
