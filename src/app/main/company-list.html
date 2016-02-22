@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row"><button type="button" class="btn btn-primary">Total Companies <span class="badge">{{ctrl.page.totalElements}}</span></button></div>
+    <h2>Companies</h2>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>location</th>
+      <th>City</th>
+      <th>Country</th>
+      <th>BeneficialOwners</th>
+      <th>Email</th>
+      <th>Phone Number</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr ng-repeat="company in ctrl.companies">
+      <td>
+        <a href="#" editable-text="edited.name">{{ edited.name || company.name }}</a>
+      </td>
+
+      <td>
+        <a href="#" editable-text="edited.address.locationDescription">{{ edited.address.locationDescription || company.address.locationDescription }}</a>
+      </td>
+      <td>
+        <a href="#" editable-text="edited.address.city">{{ edited.address.city || company.address.city }}</a>
+      </td>
+      <td>
+        <a href="#" editable-text="edited.address.country">{{ edited.address.country || company.address.country }}</a>
+      </td>
+
+      <td>
+        <a href="#" editable-text="edited.beneficialOwners">{{ edited.beneficialOwners || company.beneficialOwners }}</a>
+      </td>
+      <td>
+        <a href="#" editable-text="edited.contact.email"><span class="glyphicon glyphicon-envelope">{{ edited.contact.email || (company.contact.email ? company.contact.email : 'Not available') }}</span> </a>
+      </td>
+      <td>
+        <a href="#" editable-text="edited.contact.phoneNumber"><span class="glyphicon glyphicon-phone">{{ edited.contact.phoneNumber || (company.contact.phoneNumber ? company.contact.phoneNumber : 'Not available') }}</span></a>
+      </td>
+      <td>
+        <p>
+          <button class="btn btn-success" ng-click="ctrl.update(edited, company)">Save</button>
+          <button class="btn btn-danger glyphicon glyphicon-remove-circle" ng-click="ctrl.delete(company)"></button>
+        </p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination-centered">
+    <pagination total-items="ctrl.page.totalElements" ng-model="ctrl.page.currentPage" items-per-page="ctrl.page.size" ng-change="ctrl.pageChanged()"></pagination>
+  </div>
+
+  <p><a ng-href="#/create" class="btn btn-primary glyphicon glyphicon-plus-sign"> New Company</a></p>
+
+</div>

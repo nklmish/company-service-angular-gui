@@ -1,0 +1,43 @@
+<div class="container">
+  <h2>Add new company</h2>
+  <form role="form">
+    <div class="form-group">
+      <label for="company-name">* Name:</label>
+      <input id="company-name" class="form-control" ng-model="ctrl.companyForm.name" type="text" required placeholder="Company name..." />
+    </div>
+    <div class="form-group">
+      <label for="company-address-city">* City:</label>
+      <input id="company-address-city" class="form-control" ng-model="ctrl.companyForm.address.city" type="text" required placeholder="City..." />
+    </div>
+    <div class="form-group">
+      <label for="company-address-country">* Country:</label>
+      <input id="company-address-country" class="form-control" ng-model="ctrl.companyForm.address.country" type="text" required placeholder="Country..." />
+    </div>
+    <div class="form-group">
+      <label for="company-address-location-description">* LocationDescription:</label>
+      <input id="company-address-location-description" class="form-control" ng-model="ctrl.companyForm.address.locationDescription" type="text" required placeholder="Location description..." />
+    </div>
+
+    <div class="form-group" ng-repeat="owner in ctrl.companyForm.beneficialOwners">
+      <label for="company-beneficial-owner">* Name:</label>
+      <input id="company-beneficial-owner" class="form-control" ng-model="owner.name" type="text" required placeholder="Beneficial owner..." />
+    </div>
+
+
+    <div class="form-group">
+      <label for="company-contact-email">Email:</label>
+      <input id="company-contact-email" class="form-control" ng-model="ctrl.companyForm.contact.email" type="text" placeholder="Email (optional)..." />
+    </div>
+    <div class="form-group">
+      <label for="company-contact-phone-number">PhoneNumber:</label>
+      <input id="company-contact-phone-number" class="form-control" ng-model="ctrl.companyForm.contact.phoneNumber" type="text" placeholder="Phone (optional)..." />
+    </div>
+
+    <div class="form-group">
+      <a ng-href="#/" class="btn btn-primary">Back</a>
+      <button ng-click="ctrl.clear()" class="btn">Clear</button>
+      <button ng-click="ctrl.save()" class="btn btn-success">Save</button>
+    </div>
+  </form>
+
+</div>
